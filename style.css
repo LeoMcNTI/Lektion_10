@@ -1,0 +1,32 @@
+ul {
+    list-style-type: none;
+    margin: 5;
+    padding: 10;
+    overflow: hidden;
+    background-color: aquamarine;
+    background-image:linear-gradient(to bottom left, cyan, aquamarine, violet, purple);
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  body
+  {
+    background-image:linear-gradient(to top right, cyan, aquamarine, violet, purple);
+    background-repeat: no-repeat;
+    background-size:contain;
+    min-height: 100dvh;
+}
