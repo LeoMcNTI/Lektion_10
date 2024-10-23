@@ -1,32 +1,398 @@
-ul {
-    list-style-type: none;
-    margin: 5;
-    padding: 10;
-    overflow: hidden;
-    background-color: aquamarine;
-    background-image:linear-gradient(to bottom left, cyan, aquamarine, violet, purple);
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: #111;
-  }
+/* Where the navbar rests on top of the screen */
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-  body
-  {
-    background-image:linear-gradient(to top right, cyan, aquamarine, violet, purple);
-    background-repeat: no-repeat;
-    background-size:contain;
-    min-height: 100dvh;
+/* Navbars contents */
+ul {
+  display: flex;
+ /* justify-content: center; Deleted Code
+   align-items: center; Deleted Code */
+  position: absolute;
+  top: 0;
+  padding: 0 100vw;
+  list-style-type: none;
+  background-color: transparent;
+  border: 2px solid aquamarine;
+ }
+
+/* Navbars height*/
+li {
+  float: left;
+  max-height: 5vh;
+}
+
+/* Navbar logo contents */
+li a img {
+  max-height: 5vh;
+  position: relative;
+  top: -9px;
+  left: 0;
+  border: 2px;
+}
+
+/* Navbar text height */
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 9px 16px;
+  text-decoration: none;
+}
+
+/* Deleted Code
+.navbar {
+  /*background: transparent; 
+  background: linear-gradient(to top right, violet, aquamarine);
+  background-color: transparent; 
+    transition: background-color 250ms ease-in-out;
+}
+
+.navbar:hover {
+background-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(to top right, violet, aquamarine); 
+} Deleted Code */
+
+/* navbar layer */
+.navbar {
+  position: relative;
+  z-index:0;
+}
+
+/* Navbar hover background */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top right, violet, aquamarine);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+/* Navbar hover background */
+.navbar:hover::before {
+  opacity: 1;
+}
+
+/* Website background*/
+body {
+  background-image: linear-gradient(
+    to top right,
+    cyan,
+    aquamarine,
+    violet,
+    purple
+  );
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100dvh;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center; 
+  /* align-items: center; Deleted code*/
+}
+
+/* Gradient button; Deleted code*/
+ /*.button-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Button details */
+/* button {
+  padding: 1em 2em;
+  background-image: linear-gradient(to top right, cyan, violet);
+  border: black;
+  color: rgb(0, 0, 0);
+  border-radius: 1000px;
+  font-family: monospace;
+  position: absolute;
+  bottom: center;
+  left: 30dvh;
+  top: 75dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-image 250ms ease, box-shadow 250ms ease;
+
+}
+/* Button gradient border workaround, and colour change */
+
+/* button::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 1000px;
+  background-image: linear-gradient(to bottom right, violet, deeppink);
+  z-index: -1;
+  border: black;
+
+  opacity: 1;
+  transition: opacity 250ms ease;
+
+/* Button hover glow and colour change */
+
+/*}
+/* button:hover {
+  z-index: 0;
+  box-shadow: 30px 0 100px deepskyblue, -30px 0 100px deeppink;
+*/
+/*} Deleted Code
+/* Image controls */
+
+img[alt="Future Gif"] {
+  position: absolute;
+  top: 25dvh;
+  left: 100dvh;
+  z-index: 1;
+ /* border: solid aquamarine; Deleted Code */
+}
+
+img[alt="Future Gif 2"] {
+  position: absolute;
+  top: 7.5dvh;
+  right: center;
+  z-index: 1;
+ /* border: solid aquamarine; Deleted code */
+}
+
+/* Text font */
+.text {
+  display: flex;
+position: absolute;
+top: 10dvh;
+right: 3dvh;
+z-index: 1;
+font-size:5dvh;
+font-family: monospace;
+}
+
+/* Future 1 button image */
+ img[alt="Deloren"] {
+  position: absolute;
+  top: 55dvh;
+  left: 31dvh;
+  z-index: -1;
+  border: 0.5vw black;
+  border-style: outset;
+} 
+
+/* Future 1 image */
+
+img[alt="Utopia"] {
+  position: absolute;
+  top: 50dvh;
+  right: 73.5dvh;
+  z-index: 1;
+  border: 0.5vw aquamarine; 
+  border-style: outset
+}
+
+/* General container styles */
+.button-container, .button-container-2, .button-container-3 {
+  position: flex; /* Make sure these containers are relative to hold the absolute buttons inside */
+  width: 100dvh;
+  height: 100dvh; /* Set a fixed height so the buttons are within the viewport */
+}
+
+/* Button 1 details */
+.button-1 {
+  padding: 1em 2em;
+  background-image: linear-gradient(to top right, cyan, violet);
+  border: 2px solid blueviolet; /* Fix the border */
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  font-family: monospace;
+  position: absolute;
+  bottom: center;
+  top: 75dvh; /* Ensure the button is positioned correctly */
+  left: 30dvh; /* Change to vw for consistent width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 250ms ease, box-shadow 250ms ease;
+}
+
+/* Button 1 gradient border workaround and color change */
+.button-1::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  background-image: linear-gradient(to bottom right, violet, deeppink);
+  z-index: -1;
+  border: 2px solid black;
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+/* Button 1 hover effect */
+.button-1:hover {
+  z-index: 0;
+  box-shadow: 30px 0 100px deepskyblue, -30px 0 100px deeppink;
+}
+
+/* Button 2 details */
+.button-2 {
+  padding: 1em 2em;
+  background-image: linear-gradient(to top right, orange, yellow);
+  border: 2px solid red;
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  font-family: monospace;
+  position: absolute;
+  bottom: center; /* Position differently than Button 1 */
+  left: 95dvh;
+  top: 75dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 250ms ease, box-shadow 250ms ease;
+}
+
+
+/* Button 2 gradient border workaround and color change */
+.button-2::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  z-index: -1;
+  border: 2px solid black;
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+/* Button 2 hover effect */
+.button-2:hover {
+  z-index: 0;
+  box-shadow: 30px 0 100px gold, -30px 0 100px red;
+}
+
+
+
+/* Button 3 details */
+.button-3 {
+  padding: 1em 2em;
+  background-image: linear-gradient(to top right, lightblue, lightgreen);
+  border: 2px solid teal;
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  font-family: monospace;
+  position: absolute;
+  bottom: center; /* Unique positioning */
+  right: 30dvh;
+  top: 75dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 250ms ease, box-shadow 250ms ease;
+}
+
+
+/* Button 3 gradient border workaround and color change */
+.button-3::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  background-image: linear-gradient(to bottom right, lightgreen, lime);
+  z-index: -1;
+  border: 2px solid black;
+  opacity: 1;
+  transition: opacity 250ms ease;
+}
+
+/* Button 3 hover effect */
+.button-3:hover {
+  z-index: 0;
+  box-shadow: 30px 0 100px lightgreen, -30px 0 100px limegreen;
+}
+
+/* Option 2 button image */
+img[alt="Irobot"] {
+  position: absolute;
+  top: 55dvh;
+  right: 100.5dvh;
+  z-index: -1;
+  border: 0.5vw black;
+  border-style: outset;
+}
+
+/* Option 3 button image */
+img[alt="Apocalypse"] {
+  position: absolute;
+  top: 55dvh;
+  right: 31dvh;
+  z-index: -1;
+  border: 0.5vw black;
+  border-style: outset;
+}
+
+/* Different text font */
+.extra-text {
+  display: flex;
+position: absolute;
+top: 32.5dvh;
+left: 50dvh;
+z-index: 1;
+font-size: 25dvh;
+font-family: monospace;
+}
+
+/* Future 2 Image */
+img[alt="Ai"] {
+  position: absolute;
+  top: 50dvh;
+  right: 73.5dvh;
+  z-index: 1;
+  border: 0.5vw aquamarine; 
+  border-style: outset;
+}
+
+/* Future 3 image */
+img[alt="Nuke"] {
+  position: absolute;
+  top: 50dvh;
+  right: 73.5dvh;
+  z-index: 1;
+  border: 0.5vw aquamarine; 
+  border-style: outset;
+}
+
+/* Different text font */
+.small-extra-text {
+  display: flex;
+position: absolute;
+top: 60vh;
+left: 50dvh;
+z-index: 1;
+font-size: 10dvh;
+font-family: monospace;
+}
+
+/* Different text font */
+.small-text {
+  display: flex;
+position: absolute;
+bottom: 5dvh;
+right: 3dvh;
+z-index: 1;
+font-size: 2.5dvh;
+font-family: monospace;
 }
